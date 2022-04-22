@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 
 // Tvoříš jednoduchou komponentu, ve které je textové pole,
 // do kterého jde psát. V komponentě se bude zobrazovat
@@ -18,16 +18,27 @@ import React from 'react'
 // Poslední odstavec zobraz pouze v případě, že je text kratší než 8 znaků.
 
 const ZaverecnyBonus1 = () => {
+	const [text, setText] = useState(text)
+	const [pocet, setPocet] = useState(0)
+
+	const handleChange = (event) => {
+		setText(event.target.value);
+		setPocet(text.length);
+	}
+
 	return (
 		<>
-			<label>
+			<label onChange={handleChange}>
 				Napiš něco: <input />
 			</label>
 			<p>
-				Do políčka výše uživatel napsal: <b>@TODO</b>
+				Do políčka výše uživatel napsal: <b>{text}</b>
 			</p>
-			<p>Počet znaků: 0</p>
-			<p>Jako heslo by text neobstál.</p>
+			<p>Počet znaků: {pocet}</p>
+			<p style={{
+				display: pocet >= 8 ? "none" : "block"
+				//lámala jsem si hlavu, jak to zapsat ten styl přímo do html, nejprve none a block bez uvozovek, nejprve vše v {} atd.
+			}}>Jako heslo by text neobstál.</p>
 		</>
 	)
 }

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './ukazatel-uspechu.css'
 
 // Děláš jednoduchou komponentu, která ukazuje "progress bar",
@@ -19,20 +19,30 @@ import './ukazatel-uspechu.css'
 // Nastav prvku `ukazatel-uspechu__postup` šířku podle stavové proměnné.
 
 const UkazatelPokroku = ({ barva }) => {
+	const [postup, setPostup10] = useState(0);
+
 	return (
 		<div className="ukazatel-uspechu">
 			<div className="ukazatel-uspechu__ramecek">
 				<div
 					className="ukazatel-uspechu__postup"
 					style={{
-						width: '40%',
-						backgroundColor: 'red',
+						//width: '40%',
+						width: `${postup}%`,
+						//aby fungovalo, musí být za číslem z hodnoty postup ještě procenta, a ty nešlo připojit stylem postup"%", ale do backsticků
+						
+						//maxWidth: "100%",
+						//bacha, nemůže bát max-width
+						//toto omezení, aby barevný proužek nevyjel z rámečku, je nadbytečné jakmile se uplatní podmínka, aby stav nikdy nebyl vyšší než 100
+						backgroundColor: barva,
+						//bacha, dát barvu bez {}
 					}}
 				></div>
 			</div>
-			<button>postoupit o 10 %</button>
+			<button onClick = { () => {(postup < 100) ? setPostup10(postup+10) : none} }>postoupit o 10 %</button>
 		</div>
 	)
+	//tady bacha v té podmínce, že kdyby počáteční stav byl třeba 3, tak při 93 by se ještě pořád splnila podmínka <100 a tím pádem by konečný stav byl 103 a ne 100%, proto si to pohlídat zase nějakou podmínkou, že jeli konečný stav >100, tak přepsat na 100
 }
 
 const Uloha7 = () => {
