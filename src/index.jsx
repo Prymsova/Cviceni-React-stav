@@ -11,9 +11,9 @@ import Uloha6 from './Uloha6'
 import Uloha7 from './Uloha7'
 import Uloha8 from './Uloha8'
 import ZaverecnyBonus1 from './ZaverecnyBonus1'
-import ZaverecnyBonus2 from './ZaverecnyBonus2'
-import ZaverecnyBonus3 from './ZaverecnyBonus3'
-import ZaverecnyBonus4 from './ZaverecnyBonus4'
+//import ZaverecnyBonus2 from './ZaverecnyBonus2'
+//import ZaverecnyBonus3 from './ZaverecnyBonus3'
+//import ZaverecnyBonus4 from './ZaverecnyBonus4'
 
 render(
 	<>
@@ -36,12 +36,14 @@ render(
 		<Uloha8 />
 		<h2>Závěrečný bonus 1</h2>
 		<ZaverecnyBonus1 />
-		<h2>Závěrečný bonus 2</h2>
-		<ZaverecnyBonus2 />
-		<h2>Závěrečný bonus 3</h2>
-		<ZaverecnyBonus3 />
-		<h2>Závěrečný bonus 4</h2>
-		<ZaverecnyBonus4 />
+		{
+		//<h2>Závěrečný bonus 2</h2>
+		//<ZaverecnyBonus2 />
+		//<h2>Závěrečný bonus 3</h2>
+		//<ZaverecnyBonus3 />
+		//<h2>Závěrečný bonus 4</h2>
+		//<ZaverecnyBonus4 />
+		}
 	</>,
 	document.querySelector('#app'),
 )
